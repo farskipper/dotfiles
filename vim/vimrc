@@ -1,6 +1,6 @@
 set encoding=utf-8
 
-syntax on
+syntax enable
 set background=light
 
 setlocal spell spelllang=en_us
@@ -10,9 +10,6 @@ set complete+=kspell
 "bash like file auto-complete
 set wildmode=longest,list,full
 set wildmenu
-
-"case insensitive search if the search text is all lowercase
-set smartcase
 
 "vim backup files are more trouble then their worth
 set nowritebackup
@@ -43,6 +40,9 @@ let g:mapleader = ","
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 
+"toggle line numbers
+nnoremap <C-n> :set number!<CR>
+
 "fix common typo's
 noremap ; :
 command! Q q
@@ -65,3 +65,23 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" plugins using https://github.com/junegunn/vim-plug
+"
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'kien/rainbow_parentheses.vim'
+
+"VCS
+Plug 'mhinz/vim-signify'
+call plug#end()
+
+"rainbow_parentheses.vim
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
