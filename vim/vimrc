@@ -7,6 +7,8 @@ setlocal spell spelllang=en_us
 set nospell
 set complete+=kspell
 
+set hlsearch
+
 "bash like file auto-complete
 set wildmode=longest,list,full
 set wildmenu
