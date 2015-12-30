@@ -13,7 +13,7 @@ alias sagu='sudo apt-get update'
 alias sagg='sudo apt-get upgrade'
 alias sags='sudo apt-cache search'
 
-alias supergrep='grep -rn -C 5 --color=auto --exclude-dir=node_modules --exclude-dir=.git  --exclude-dir=.svn'
+alias supergrep='grep -rn -C 5 --color=auto --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.meteor'
 
 alias rmsvn='find . -name .svn -exec rm -rf {} \;'
 
@@ -21,9 +21,9 @@ alias rmsvn='find . -name .svn -exec rm -rf {} \;'
 # monitors
 alias xr-single='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --off --output HDMI2 --off'
 alias xr-dual1='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --mode 1920x1080 --output HDMI2 --off'
-alias xr-dual2='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --output HDMI2 --mode 1920x1080 --right-of eDP1'
-alias xr-dual-hdmi='xrandr --output eDP1 --off --output HDMI1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --right-of HDMI1'
-alias xr-tri='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --mode 1920x1080 --left-of eDP1 --output HDMI2 --mode 1920x1080 --right-of eDP1'
+alias xr-dual2='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --output HDMI2 --mode 1920x1080 --left-of eDP1'
+alias xr-dual-hdmi='xrandr --output eDP1 --off --output HDMI1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --left-of HDMI1'
+alias xr-tri='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --mode 1920x1080 --right-of eDP1 --output HDMI2 --mode 1920x1080 --left-of eDP1'
 
 ##########################################################################
 ## vim
