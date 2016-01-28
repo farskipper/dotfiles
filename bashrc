@@ -24,6 +24,7 @@ alias xr-dual1='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --mode 1920
 alias xr-dual2='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --output HDMI2 --mode 1920x1080 --left-of eDP1'
 alias xr-dual-hdmi='xrandr --output eDP1 --off --output HDMI1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --left-of HDMI1'
 alias xr-tri='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --mode 1920x1080 --right-of eDP1 --output HDMI2 --mode 1920x1080 --left-of eDP1'
+alias xr-tri2='xrandr --output eDP1 --mode 1360x768  --output HDMI1 --mode 1920x1080 --right-of eDP1 --output HDMI2 --mode 1920x1080 --left-of eDP1'
 
 ##########################################################################
 ## vim
