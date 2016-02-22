@@ -18,6 +18,9 @@ set nowritebackup
 set noswapfile
 set nobackup
 
+set colorcolumn=80
+hi ColorColumn ctermbg=darkgrey guibg=darkgrey
+
 """"""""""""""""""""""""""""""""""""""""""""""""
 " indentation
 "
@@ -26,10 +29,15 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+"expose tabs
+set list
+set listchars=tab:\☞\ 
+
 """"""""""""""""""""""""""""""""""""""""""""""""
 " file types
 "
 autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure
+autocmd BufNewFile,BufReadPost *.ts setfiletype javascript
 autocmd BufNewFile,BufReadPost *.md   setfiletype markdown
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 
