@@ -37,6 +37,7 @@ set listchars=tab:\☞\
 " file types
 "
 autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure
+autocmd BufNewFile,BufReadPost *.ecmaless setfiletype clojure
 autocmd BufNewFile,BufReadPost *.ts setfiletype javascript
 autocmd BufNewFile,BufReadPost *.md   setfiletype markdown
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
@@ -57,6 +58,8 @@ nnoremap <C-n> :set number!<CR>
 noremap ; :
 command! Q q
 command! Qall qall
+
+nnoremap <leader>f :1,$!js-beautify -j -<CR><esc>:w<CR>''
 
 "stamping
 nnoremap S "_diwP
