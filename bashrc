@@ -17,6 +17,8 @@ alias supergrep='grep -rn -C 5 --color=auto --exclude-dir=node_modules --exclude
 
 alias rmsvn='find . -name .svn -exec rm -rf {} \;'
 
+alias du-dirs='du -sch .[!.]* * | sort -h'
+
 ##########################################################################
 # monitors
 alias xr-single='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --off --output HDMI2 --off'
