@@ -12,12 +12,16 @@ alias sagi='sudo apt-get install'
 alias sagu='sudo apt-get update'
 alias sagg='sudo apt-get upgrade'
 alias sags='sudo apt-cache search'
+alias sag-purge-all='sudo dpkg --purge `dpkg --get-selections | grep deinstall | cut -f1`'
 
 alias supergrep='grep -rn -C 5 --color=auto --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.meteor'
 
 alias rmsvn='find . -name .svn -exec rm -rf {} \;'
 
 alias du-dirs='du -sch .[!.]* * | sort -h'
+
+alias ife='sudo ifdown wlan0 && sudo ifup eth0'
+alias ifw='sudo ifdown eth0 && sudo ifup wlan0'
 
 ##########################################################################
 # monitors
