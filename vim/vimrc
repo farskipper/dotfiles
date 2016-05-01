@@ -89,6 +89,7 @@ Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'lambdatoast/elm.vim'
+Plug 'kynetx/krl-vim-plugin'
 
 "VCS
 Plug 'mhinz/vim-signify'
