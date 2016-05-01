@@ -23,6 +23,8 @@ alias du-dirs='du -sch .[!.]* * | sort -h'
 alias ife='sudo ifdown wlan0 && sudo ifup eth0'
 alias ifw='sudo ifdown eth0 && sudo ifup wlan0'
 
+alias swapescape='setxkbmap -option caps:swapescape'
+
 ##########################################################################
 # monitors
 alias xr-single='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --off --output HDMI2 --off'

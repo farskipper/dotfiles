@@ -13,6 +13,6 @@ ln -sf ~/dotfiles/vim/ ~/.vim
 echo "source ~/.vim/vimrc \"shim to get to the version controlled vimrc" > ~/.vimrc
 
 #swap-esc-caps
-echo "xmodmap ~/dotfiles/swap-esc-caps" >> ~/.xinitrc
+echo "setxkbmap -option caps:swapescape" >> ~/.xinitrc
 
 echo "DONE!"
