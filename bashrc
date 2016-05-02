@@ -25,11 +25,14 @@ alias ifw='sudo ifdown eth0 && sudo ifup wlan0'
 
 alias swapescape='setxkbmap -option caps:swapescape'
 
+alias git-undo='git reset --soft HEAD~ && git reset -- .'
+
 ##########################################################################
 # monitors
 alias xr-single='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --off --output HDMI2 --off'
 alias xr-dual1='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --mode 1920x1080 --output HDMI2 --off'
 alias xr-dual2='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --output HDMI2 --mode 1920x1080 --left-of eDP1'
+alias xr-dualv='xrandr --output eDP1 --mode 1920x1080 --output HDMI1  --off --output HDMI2 --mode 1920x1080 --above eDP1'
 alias xr-dual-hdmi='xrandr --output eDP1 --off --output HDMI1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --left-of HDMI1'
 alias xr-tri='xrandr --output eDP1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --left-of eDP1 --output HDMI1 --mode 1920x1080 --left-of HDMI2'
 alias xr-tri2='xrandr --output eDP1 --mode 1360x768  --output HDMI2 --mode 1920x1080 --left-of eDP1 --output HDMI1 --mode 1920x1080 --left-of HDMI2'
