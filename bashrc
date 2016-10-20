@@ -21,7 +21,13 @@ alias rmsvn='find . -name .svn -exec rm -rf {} \;'
 alias du-dirs='du -sch .[!.]* * | sort -h'
 
 alias ife='sudo ifdown wlan0 && sudo ifup eth0'
+alias ifer='sudo ifdown eth0 && sudo ifup eth0'
 alias ifw='sudo ifdown eth0 && sudo ifup wlan0'
+alias ifwr='sudo ifdown wlan0 && sudo ifup wlan0'
+
+#find . -type d -exec chmod 755 {} \; && find . -type f -exec chmod 644 {} \;
+
+alias to-clipboard='xclip -i -selection clipboard'
 
 alias swapescape='setxkbmap -option caps:swapescape'
 
