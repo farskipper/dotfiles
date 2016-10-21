@@ -51,6 +51,10 @@ let g:mapleader = ","
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 
+"system copy-paste
+map <C-p> :r!xclip -o<CR>
+vmap <C-c> :w !xclip -i -selection clipboard<CR><CR>
+
 "toggle line numbers
 nnoremap <C-n> :set number!<CR>
 
@@ -88,7 +92,7 @@ Plug 'tpope/vim-repeat'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'lambdatoast/elm.vim'
+Plug 'elmcast/elm-vim'
 Plug 'kynetx/krl-vim-plugin'
 
 "VCS
@@ -118,3 +122,6 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" elm.vim
+let g:elm_format_autosave = 1
