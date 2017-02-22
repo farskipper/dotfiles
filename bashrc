@@ -4,6 +4,10 @@ if [ -d $HOME/bin ]; then
   export PATH="$HOME/bin:$PATH"
 fi
 
+if [ -n "$DISPLAY" ]; then
+  xset b off
+fi
+
 ##########################################################################
 # utils
 alias la='ls -lah'
@@ -42,6 +46,7 @@ alias xr-dualv='xrandr --output eDP1 --mode 1920x1080 --output HDMI1  --off --ou
 alias xr-dual-hdmi='xrandr --output eDP1 --off --output HDMI1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --left-of HDMI1'
 alias xr-tri='xrandr --output eDP1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --left-of eDP1 --output HDMI1 --mode 1920x1080 --left-of HDMI2'
 alias xr-tri2='xrandr --output eDP1 --mode 1360x768  --output HDMI2 --mode 1920x1080 --left-of eDP1 --output HDMI1 --mode 1920x1080 --left-of HDMI2'
+alias xr-ohio='xrandr --output eDP1 --mode 1360x768 --output HDMI2 --mode 1440x900 --rotate left --right-of eDP1'
 
 ##########################################################################
 ## vim
