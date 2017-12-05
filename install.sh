@@ -12,7 +12,7 @@ echo "source-file ~/dotfiles/tmux.conf" > ~/.tmux.conf
 ln -sf ~/dotfiles/vim/ ~/.vim
 echo "source ~/.vim/vimrc \"shim to get to the version controlled vimrc" > ~/.vimrc
 
-#swap-esc-caps
-echo "setxkbmap -option caps:swapescape" >> ~/.xinitrc
+#git
+git config --global alias.st status
 
 echo "DONE!"

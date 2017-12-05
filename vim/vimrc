@@ -19,7 +19,7 @@ set noswapfile
 set nobackup
 
 set colorcolumn=80
-hi ColorColumn ctermbg=darkgrey guibg=darkgrey
+hi ColorColumn ctermbg=grey guibg=grey
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " indentation
@@ -39,7 +39,7 @@ set listchars=tab:\☞\
 autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure
 autocmd BufNewFile,BufReadPost *.ecmaless setfiletype python
 autocmd BufNewFile,BufReadPost *.ts setfiletype javascript
-autocmd BufNewFile,BufReadPost *.md   setfiletype markdown
+autocmd BufNewFile,BufReadPost *.md setfiletype markdown
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -63,7 +63,6 @@ noremap ; :
 command! Q q
 command! Qall qall
 
-nnoremap <leader>f :1,$!js-beautify -j -<CR><esc>:w<CR>''
 
 "stamping
 nnoremap S "_diwP
@@ -83,6 +82,30 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+
+" need to `npm i -g typescript-formatter`
+function! FormatTypeScript()
+    " save cursor position, folds and many other things (thanks elmcast/elm-vim)
+    let l:curw = {}
+    try
+      mkview!
+    catch
+      let l:curw = winsaveview()
+    endtry
+
+    execute "1,$!tsfmt --stdin"
+
+    " restore our cursor/windows positions, folds, etc.. (thanks elmcast/elm-vim)
+    if empty(l:curw)
+      silent! loadview
+    else
+      call winrestview(l:curw)
+    endif
+endf
+"command -buffer FormatTypeScript call FormatTypeScript()
+"autocmd BufWritePre *.ts :1,$!tsfmt --stdin
+autocmd BufWritePre *.ts call FormatTypeScript()
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugins using https://github.com/junegunn/vim-plug
 "
@@ -91,37 +114,15 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'elmcast/elm-vim'
 Plug 'kynetx/krl-vim-plugin'
 
-"VCS
+" Show diffs
 Plug 'mhinz/vim-signify'
-call plug#end()
 
-"rainbow_parentheses.vim
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['white',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
-" elm.vim
+Plug 'elmcast/elm-vim'
 let g:elm_format_autosave = 1
+
+Plug 'leafgarland/typescript-vim'
+let g:typescript_indent_disable = 1
+
+call plug#end()
