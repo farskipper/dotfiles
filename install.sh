@@ -15,4 +15,7 @@ echo "source ~/.vim/vimrc \"shim to get to the version controlled vimrc" > ~/.vi
 #git
 git config --global alias.st status
 
+#xmonad
+ln -sf ~/dotfiles/xmonad/ ~/.xmonad
+
 echo "DONE!"

@@ -37,8 +37,11 @@ alias to-clipboard='xclip -i -selection clipboard'
 alias swapescape='setxkbmap -option caps:swapescape'
 
 alias git-undo='git reset --soft HEAD~ && git reset -- .'
-#git clean -ndX - show files that are ignored, drop 'n' to remove them
-#git clean -nd - show files that are ignored or untracked
+# git clean -ndX - show files that are ignored, drop 'n' to remove them
+# git clean -nd - show files that are ignored or untracked
+# git reset --hard @{u} - drop local commits (reset to upstream)
+# sed -i 's/foo/bar/g' *
+# grep -rl 'foo' . | xargs sed -i 's/foo/bar/g'
 
 ##########################################################################
 # monitors
@@ -49,7 +52,7 @@ alias xr-dualv='xrandr --output eDP1 --mode 1920x1080 --output HDMI1  --off --ou
 alias xr-dual-hdmi='xrandr --output eDP1 --off --output HDMI1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --left-of HDMI1'
 alias xr-tri='xrandr --output eDP1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --left-of eDP1 --output HDMI1 --mode 1920x1080 --left-of HDMI2'
 alias xr-tri2='xrandr --output eDP1 --mode 1360x768  --output HDMI2 --mode 1920x1080 --left-of eDP1 --output HDMI1 --mode 1920x1080 --left-of HDMI2'
-alias xr-ohio='xrandr --output eDP1 --mode 1360x768 --output HDMI2 --mode 1440x900 --rotate left --right-of eDP1'
+alias xr-ohio='xrandr --output eDP1 --mode 1920x1080 --output HDMI2 --mode 1440x900 --rotate left --left-of eDP1'
 alias xr-dhr='xrandr --output eDP1 --off  --output HDMI1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --right-of HDMI1'
 alias xr-dhl='xrandr --output eDP1 --off  --output HDMI1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --left-of HDMI1'
 

@@ -37,8 +37,7 @@ set listchars=tab:\☞\
 " file types
 "
 autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure
-autocmd BufNewFile,BufReadPost *.ecmaless setfiletype python
-autocmd BufNewFile,BufReadPost *.ts setfiletype javascript
+autocmd BufNewFile,BufRead *.ecmaless  set filetype=ecmaless
 autocmd BufNewFile,BufReadPost *.md setfiletype markdown
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 
@@ -83,28 +82,11 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 
+set autoread
 " need to `npm i -g typescript-formatter`
-function! FormatTypeScript()
-    " save cursor position, folds and many other things (thanks elmcast/elm-vim)
-    let l:curw = {}
-    try
-      mkview!
-    catch
-      let l:curw = winsaveview()
-    endtry
-
-    execute "1,$!tsfmt --stdin"
-
-    " restore our cursor/windows positions, folds, etc.. (thanks elmcast/elm-vim)
-    if empty(l:curw)
-      silent! loadview
-    else
-      call winrestview(l:curw)
-    endif
-endf
-"command -buffer FormatTypeScript call FormatTypeScript()
-"autocmd BufWritePre *.ts :1,$!tsfmt --stdin
-autocmd BufWritePre *.ts call FormatTypeScript()
+autocmd BufWritePost *.ts silent !tsfmt -r % > /dev/null 2>&1
+" need to `npm i -g standard`
+autocmd BufWritePost *.js silent !standard --fix % > /dev/null 2>&1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugins using https://github.com/junegunn/vim-plug
@@ -119,6 +101,7 @@ Plug 'kynetx/krl-vim-plugin'
 " Show diffs
 Plug 'mhinz/vim-signify'
 
+" need to `npm i -g elm-format`
 Plug 'elmcast/elm-vim'
 let g:elm_format_autosave = 1
 
