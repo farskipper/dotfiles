@@ -27,7 +27,7 @@ alias du-dirs='du -sch .[!.]* * | sort -h'
 alias ife='sudo ifdown wlan0 && sudo ifup eth0'
 alias ifer='sudo ifdown eth0 && sudo ifup eth0'
 alias ifw='sudo ifdown eth0 && sudo ifup wlan0'
-alias ifwr='sudo ifdown wlan0 && sudo ifup wlan0'
+alias ifwr='sudo ifdown wlan0 && sleep 1 && sudo ifup wlan0'
 alias ifusb='sudo ifconfig usb0 up && sudo dhclient usb0'
 
 #find . -type d -exec chmod 755 {} \; && find . -type f -exec chmod 644 {} \;
@@ -45,16 +45,8 @@ alias git-undo='git reset --soft HEAD~ && git reset -- .'
 
 ##########################################################################
 # monitors
-alias xr-single='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --off --output HDMI2 --off'
-alias xr-dual1='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --mode 1920x1080 --output HDMI2 --off'
-alias xr-dual2='xrandr --output eDP1 --mode 1920x1080 --output HDMI1 --output HDMI2 --mode 1920x1080 --left-of eDP1'
-alias xr-dualv='xrandr --output eDP1 --mode 1920x1080 --output HDMI1  --off --output HDMI2 --mode 1920x1080 --above eDP1'
-alias xr-dual-hdmi='xrandr --output eDP1 --off --output HDMI1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --left-of HDMI1'
-alias xr-tri='xrandr --output eDP1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --left-of eDP1 --output HDMI1 --mode 1920x1080 --left-of HDMI2'
-alias xr-tri2='xrandr --output eDP1 --mode 1360x768  --output HDMI2 --mode 1920x1080 --left-of eDP1 --output HDMI1 --mode 1920x1080 --left-of HDMI2'
-alias xr-ohio='xrandr --output eDP1 --mode 1920x1080 --output HDMI2 --mode 1440x900 --rotate left --left-of eDP1'
-alias xr-dhr='xrandr --output eDP1 --off  --output HDMI1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --right-of HDMI1'
-alias xr-dhl='xrandr --output eDP1 --off  --output HDMI1 --mode 1920x1080 --output HDMI2 --mode 1920x1080 --left-of HDMI1'
+alias xr-single='xrandr --output eDP-1 --mode 1920x1080 --output HDMI-1 --off --output HDMI-2 --off'
+alias xr-dhl='xrandr --output eDP-1 --off  --output HDMI-1 --mode 1920x1080 --output HDMI-2 --mode 1920x1080 --left-of HDMI-1'
 
 ##########################################################################
 ## vim

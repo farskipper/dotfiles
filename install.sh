@@ -18,4 +18,7 @@ git config --global alias.st status
 #xmonad
 ln -sf ~/dotfiles/xmonad/ ~/.xmonad
 
+# most of the time I don't want the package-lock.json
+echo "package-lock=false" >> ~/.npmrc
+
 echo "DONE!"
