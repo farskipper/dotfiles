@@ -38,10 +38,18 @@ alias swapescape='setxkbmap -option caps:swapescape'
 
 alias git-undo='git reset --soft HEAD~ && git reset -- .'
 # git clean -ndX - show files that are ignored, drop 'n' to remove them
-# git clean -nd - show files that are ignored or untracked
+# git clean -ndx - show files that are ignored or untracked
 # git reset --hard @{u} - drop local commits (reset to upstream)
 # sed -i 's/foo/bar/g' *
 # grep -rl 'foo' . | xargs sed -i 's/foo/bar/g'
+
+
+# ufw # firewall tool
+# sudo ufw status verbose
+# sudo ufw allow in 8765
+# sudo ufw delete allow in 8765
+
+# exiftool # to manage photo metadata
 
 ##########################################################################
 # monitors

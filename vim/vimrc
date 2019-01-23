@@ -22,8 +22,8 @@ set nobackup
 " indentation
 "
 filetype plugin indent on
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 
 "expose tabs
@@ -34,6 +34,7 @@ set listchars=tab:\☞\
 " file types
 "
 autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure
+autocmd BufNewFile,BufReadPost *.ejs setfiletype html
 autocmd BufNewFile,BufReadPost *.md setfiletype markdown
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 
@@ -78,9 +79,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 
+" for code formatters
 set autoread
-" need to `npm i -g typescript-formatter`
-autocmd BufWritePost *.ts silent !tsfmt -r % > /dev/null 2>&1
 " need to `npm i -g standard`
 autocmd BufWritePost *.js silent !standard --fix % > /dev/null 2>&1
 
@@ -95,6 +95,7 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'kynetx/krl-vim-plugin'
 Plug 'jparise/vim-graphql'
 Plug 'farskipper/ecmaless-vim'
+Plug 'pangloss/vim-javascript'
 
 " Show diffs
 Plug 'mhinz/vim-signify'
@@ -105,5 +106,23 @@ let g:elm_format_autosave = 1
 
 Plug 'leafgarland/typescript-vim'
 let g:typescript_indent_disable = 1
+
+Plug 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|\.meteor|node_modules|elm-stuff)$'
+
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+" format on save, note Async only works on vim 8+
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.graphql,*.vue PrettierAsync
+"autocmd BufWritePre *.json PrettierAsync
+"autocmd BufWritePre *.js PrettierAsync
+"autocmd BufWritePre *.md PrettierAsync
+" restoring prettier defaults b/c vim-prettier is bikeshedding their own
+let g:prettier#config#single_quote = 'false'
+let g:prettier#config#bracket_spacing = 'true'
+let g:prettier#config#jsx_bracket_same_line = 'false'
+let g:prettier#config#arrow_parens = 'avoid'
+let g:prettier#config#trailing_comma = 'none'
+let g:prettier#config#parser = 'babylon'
 
 call plug#end()
